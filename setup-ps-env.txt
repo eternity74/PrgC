@@ -1,0 +1,21 @@
+1. msys2 설치
+ - https://www.msys2.org/
+ - 32 비트용 msys2-i686-20180531.exe 설치
+2. msys2 업데이트
+ - msys2 실행하여 아래 커맨드 실행
+ $ pacman -Syu
+ $ pacman -Su
+3. gcc 설치 (32bit)
+ $ pacman -S mingw-w64-i686-gcc
+4. vim, make 설치
+ $ pacman -S vim make
+5. 영어로 language 설정
+ $ vim .bashrc 아래 내용 추가
+      export LANG=en_US.UTF-8
+      export LC_CTYPE="en_US.UTF-8"
+      export LC_NUMERIC="en_US.UTF-8"
+      export LC_TIME="en_US.UTF-8"
+      export LC_COLLATE="en_US.UTF-8"
+      export LC_MONETARY="en_US.UTF-8"
+      export LC_MESSAGES="en_US.UTF-8"
+
