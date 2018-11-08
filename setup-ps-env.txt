@@ -8,7 +8,7 @@
 3. gcc 설치 (32bit)
  $ pacman -S mingw-w64-i686-gcc
 4. vim, make 설치
- $ pacman -S vim make
+ $ pacman -S vim make git
 5. 영어로 language 설정
  $ vim .bashrc 아래 내용 추가
       export LANG=en_US.UTF-8
@@ -18,4 +18,5 @@
       export LC_COLLATE="en_US.UTF-8"
       export LC_MONETARY="en_US.UTF-8"
       export LC_MESSAGES="en_US.UTF-8"
+ 6. .vimrc 
 
