@@ -5,11 +5,9 @@
  - msys2 실행하여 아래 커맨드 실행
  $ pacman -Syu
  $ pacman -Su
-3. gcc 설치 (32bit)
- $ pacman -S mingw-w64-i686-gcc
-4. vim, make 설치
- $ pacman -S vim make git
-5. 영어로 language 설정
+3. 필요한 패키치 설치 (gcc, vim, make, git, python3)
+ $ pacman -S mingw-w64-i686-gcc vim make git python3
+4. 영어로 language 설정
  $ vim .bashrc 아래 내용 추가
       export LANG=en_US.UTF-8
       export LC_CTYPE="en_US.UTF-8"
@@ -18,5 +16,32 @@
       export LC_COLLATE="en_US.UTF-8"
       export LC_MONETARY="en_US.UTF-8"
       export LC_MESSAGES="en_US.UTF-8"
- 6. .vimrc 
+ 5. .vimrc 
+      " Install vim-plug if we don't already have it
+      if empty(glob("~/.vim/autoload/plug.vim"))
+              " Ensure all needed directories exist  (Thanks @kapadiamush)
+              if empty(glob($HOME . "/.vim/plugged/"))
+                      echom $HOME . "/.vim/plugged"
+                      call mkdir($HOME . "/.vim/plugged","p")
+              endif
+              if empty(glob($HOME . "/.vim/autoload/"))
+                      call mkdir($HOME . "/.vim/autoload","p")
+              endif
+              " Download the actual plugin manager
+              execute "!curl -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim"
+      endif
 
+      call plug#begin('~/.vim/plugged')
+      Plug 'SirVer/ultisnips'
+      Plug 'vim-syntastic/syntastic'
+      Plug 'scrooloose/nerdtree'
+      call plug#end()
+
+      set nu
+      syntax on
+      set et
+      set sw=2 ts=2
+      set makeprg="g++ -static -DONLINE_JUDGE -lm -s -x c++ -Wl,--stack=268435456 -O2 -std=c++11 -D__USE_MINGW_ANSI_STDIO=0\ %<.run"
+
+      let g:syntastic_cpp_compiler = 'g++'
+      let g:syntastic_cpp_compiler_options = '-std=c++14'
