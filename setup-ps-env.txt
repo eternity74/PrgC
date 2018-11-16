@@ -45,7 +45,7 @@
 
       let g:syntastic_cpp_compiler = 'g++'
       let g:syntastic_cpp_compiler_options = '-std=c++14'
-  6. YCM compile
+  6. YCM compile / 컴파일시에는 msys gcc 로 컴파일, python3 는 msys에서만 설치, clang 은 mingw32로 연결.
     - msys bash 에서 수행
       $ cmake -G "Unix Makefiles" -DUSE_PYTHON2=OFF -DPATH_TO_LLVM_ROOT=/mingw32 . ~/.vim/plugged/YouCompleteMe/third_party/ycmd/cpp
       $ cmake --build . --target ycm_core --config Release
