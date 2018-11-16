@@ -6,7 +6,7 @@
  $ pacman -Syu
  $ pacman -Su
 3. 필요한 패키치 설치 (gcc, vim, make, git, python3)
- $ pacman -S mingw-w64-i686-gcc vim make git python3
+ $ pacman -S gcc vim make git python3 mingw-w64-i686-gcc mingw-w64-i686-clang
 4. 영어로 language 설정
  $ vim .bashrc 아래 내용 추가
       export LANG=en_US.UTF-8
@@ -45,3 +45,8 @@
 
       let g:syntastic_cpp_compiler = 'g++'
       let g:syntastic_cpp_compiler_options = '-std=c++14'
+  6. YCM compile
+    - msys bash 에서 수행
+      $ cmake -G "Unix Makefiles" -DUSE_PYTHON2=OFF -DPATH_TO_LLVM_ROOT=/mingw32 . ~/.vim/plugged/YouCompleteMe/third_party/ycmd/cpp
+      $ cmake --build . --target ycm_core --config Release
+    - mingw32 bash 에서 vim / compile 작업 수행.
