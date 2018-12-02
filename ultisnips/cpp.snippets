@@ -33,10 +33,11 @@ using namespace std;
 #define MOD 1000000007
 
 /******* Debugging Class Template *******/
+#ifndef ONLINE_JUDGE
 #define DEBUG
+#endif
 
 #ifdef DEBUG
-
     #define debug(args...)     (Debugger()) , args
 
     class Debugger
@@ -48,12 +49,12 @@ using namespace std;
         template<typename ObjectType> Debugger& operator , (const ObjectType& v)
         {
             if(!first)
-                std::cerr << separator;
-            std::cerr << v;
+                std::cout << separator;
+            std::cout << v;
             first = false;
             return *this;
         }
-        ~Debugger() {  std::cerr << endl;}
+        ~Debugger() {  std::cout << endl;}
 
         private:
         bool first;
@@ -68,7 +69,7 @@ using namespace std;
 int main()
 {
 	std::ios_base::sync_with_stdio(false);
-	cin.tie(null);
+	cin.tie(NULL);
 	$0
 	return 0;
 }
