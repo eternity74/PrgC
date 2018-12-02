@@ -1,0 +1,84 @@
+snippet fori
+for(${1:int} ${2:i}=0; $2 < $3; $2++) $0
+endsnippet
+
+snippet main
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <sstream>
+#include <queue>
+#include <deque>
+#include <bitset>
+#include <iterator>
+#include <list>
+#include <stack>
+#include <map>
+#include <set>
+#include <functional>
+#include <numeric>
+#include <utility>
+#include <limits>
+#include <time.h>
+#include <math.h>
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <assert.h>
+
+#define endl '\n'
+using namespace std;
+
+#define MOD 1000000007
+
+/******* Debugging Class Template *******/
+#define DEBUG
+
+#ifdef DEBUG
+
+    #define debug(args...)     (Debugger()) , args
+
+    class Debugger
+    {
+        public:
+        Debugger(const std::string& _separator = " - ") :
+        first(true), separator(_separator){}
+
+        template<typename ObjectType> Debugger& operator , (const ObjectType& v)
+        {
+            if(!first)
+                std::cerr << separator;
+            std::cerr << v;
+            first = false;
+            return *this;
+        }
+        ~Debugger() {  std::cerr << endl;}
+
+        private:
+        bool first;
+        std::string separator;
+    };
+
+#else
+    #define debug(args...)                  // Just strip off all debug tokens
+#endif
+
+/********** Main()  function **********/
+int main()
+{
+	std::ios_base::sync_with_stdio(false);
+	cin.tie(null);
+	$0
+	return 0;
+}
+/********  Main() Ends Here *************/
+endsnippet
+
+snippet vi
+vector<int> $0
+endsnippet
+
+snippet ul
+unsigned long $0
+endsnippet
