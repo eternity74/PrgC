@@ -35,7 +35,7 @@ function! MakeAndRun()
   if len(getqflist()) == 1
     echom "executing " . l:exe_name
     let l:input_file = l:exe_name . ".in"
-    if bufwinnr(l:input_file) < 0
+    if bufwinnr("^" . l:input_file . "$") < 0
         execute "bo sp " . l:input_file 
     endif
     let l:exe_buf = bufwinnr("!bash -c \"./" . l:exe_name)
@@ -43,6 +43,7 @@ function! MakeAndRun()
         exe l:exe_buf . "wincmd q"
     endif
     if filereadable(l:input_file)
+        exec bufwinnr("^" . l:input_file. "$") . "wincmd w"
         execute "bel vert term bash -c \"./" . l:exe_name . " < " . l:input_file . "\""
     else
         execute "bel vert term ./" . l:exe_name
